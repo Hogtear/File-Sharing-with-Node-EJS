@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <% if (locals.fileLink != null) { %>
+    <div style="margin-bottom: 1rem;">
+      Seu arquivo foi enviado
+      <a href="<%= locals.fileLink %>"><%= locals.fileLink %></a>
+    </div>
+  <% } %>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="file">Arquivo:</label>
+    <input type="file" id="file" name="file" required />
+    <label class="label" for="password">Senha:</label>
+    <input type="password" id="password" name="password" />
+    <button class="button" type="submit">Compartilhar</button>
+  </form>
+</body>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+  }
+
+  body {
+    background-color: #343434;
+    color: white;
+    
+  }
+
+  a{
+    text-decoration: none;
+    color: #65ffbc;
+  }
+
+  form{
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: auto 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .label{
+    border-radius: .75rem;
+  }
+
+  .button{
+    background-color: #2aa05f;
+    color: white;
+    border: none;
+    border-radius: .25rem;
+    padding: .5rem;
+    font-size: 1rem;
+    grid-column: span 2;
+    cursor: pointer;
+    transition: .4s;
+  }
+
+  button:hover{
+    transition: .4s;
+    background-color: #1f8e5e;
+  }
+
+  label{
+    font-family: Poppins;
+    font-size: 1rem;
+    color: #c7c7c7;
+  }
+
+</style>
+
+</html>
